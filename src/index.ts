@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("hello from express, test");
+  res.send("hello from express, after dockerfile changed");
 });
 
 app.listen(port, () => {

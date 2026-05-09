@@ -7,7 +7,7 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "ESNext",
+    "module": "commonjs",
     "target": "es2024",
     "types": [],
     // For nodejs:
@@ -15,7 +15,7 @@
     // "types": ["node"],
     // and npm install -D @types/node
     "esModuleInterop": true,
-    "moduleResolution": "bundler",
+    // "moduleResolution": "bundler",
 
     // Other Outputs
     "sourceMap": true,

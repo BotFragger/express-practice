@@ -1,7 +1,7 @@
 # =====================================
 # Builder Stage
 # =====================================
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
@@ -26,7 +26,7 @@ RUN npm run build
 # =====================================
 # Production Stage
 # =====================================
-FROM node:22-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
@@ -45,11 +45,11 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/prisma ./prisma
 
 # Copy prisma generated engine
-COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+# COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 
 # Generate prisma client
 RUN npx prisma generate --schema=./prisma/schema/schema.prisma
 
 EXPOSE 3000
 
-CMD ["node", "dist/index.js"]                                                                                                                                                     
+CMD ["node", "dist/src/index.js"]                                                                                                                                                     

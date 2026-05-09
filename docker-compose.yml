@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - .env
+      - .env.docker
     depends_on:
       - db
     volumes:
@@ -19,11 +19,11 @@ services:
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: express_practice
-      MARIADB_USER: express_user
-      MARIADB_PASSWORD: secret
+      MARIADB_DATABASE: express-practice
+      MARIADB_USER: root
+      MARIADB_PASSWORD: root
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
 
